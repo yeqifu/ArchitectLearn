@@ -1,0 +1,10 @@
+dubbo:
+  application:
+    name: dubbo-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  scan:
+    base-packages: com.yeqifu.service.impl
+  protocol:
+    name: dubbo
+    port: 20880
