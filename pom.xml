@@ -12,6 +12,7 @@
     <modules>
         <module>Io-Demo</module>
         <module>1-pre-dubbo-demo</module>
+        <module>2-serialize-demo</module>
     </modules>
 
     <properties>
