@@ -13,6 +13,8 @@
         <module>Io-Demo</module>
         <module>1-pre-dubbo-demo</module>
         <module>2-serialize-demo</module>
+        <module>3-reactor-demo</module>
+        <module>9-design-pattern</module>
     </modules>
 
     <properties>

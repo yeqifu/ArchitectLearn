@@ -7,6 +7,8 @@ package com.yeqifu;
 public interface OrderService {
 
     /**
+     * 根据订单 ID 获取订单信息
+     *
      * @param orderId
      * @return
      */

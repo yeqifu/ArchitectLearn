@@ -69,4 +69,15 @@ public class Book {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
+                ", tag='" + tag + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

@@ -28,7 +28,7 @@ public class NioServer {
         // 将 serverSocketChannel 注册到 selector 上，第二个参数代表监听 OP_ACCEPT 事件
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         while (true) {
-            // selector 执行 select，selectionKey 会得到 socket 相应的事件
+            // selector 执行 select，selectionKey 会得到 socket 相应的事件，如果没有相应的事件可用，selector.select() 是不会返回的
             selector.select();
             Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
             while (iterator.hasNext()) {
@@ -52,6 +52,13 @@ public class NioServer {
         }
     }
 
+    /**
+     * 处理读取数据事件
+     *
+     * @param selector
+     * @param selectionKey
+     * @throws IOException
+     */
     private static void dearRead(Selector selector, SelectionKey selectionKey) throws IOException {
         SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
         ByteBuffer readBuffer = ByteBuffer.allocate(1024);
@@ -79,6 +86,13 @@ public class NioServer {
         }
     }
 
+    /**
+     * 处理接收新的 socket 连接事件
+     *
+     * @param selector
+     * @param selectionKey
+     * @throws IOException
+     */
     private static void dearAccept(Selector selector, SelectionKey selectionKey) throws IOException {
         ServerSocketChannel serverSocketChannel = (ServerSocketChannel) selectionKey.channel();
         SocketChannel socketChannel = serverSocketChannel.accept();
